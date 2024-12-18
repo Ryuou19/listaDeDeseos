@@ -40,9 +40,9 @@ document.getElementById("btn-agregar-regalo").addEventListener("click", (event) 
 function iniciarSesion() {
     const rutIngresado = document.getElementById("rut").value.trim();
     const errorMensaje = document.getElementById("error");
-
+//holaaa
     // Obtener usuarios desde el servidor o archivo JSON
-    fetch("http://localhost:3000/usuarios")
+    fetch("https://listadedeseos.onrender.com/usuarios")
         .then(response => response.json())
         .then(usuarios => {
             // Buscar el usuario por el RUT ingresado
@@ -51,7 +51,7 @@ function iniciarSesion() {
             if (user) {
                 // Establecer el usuario actual
                 usuarioActual = user;
-
+//hol
                 // Ocultar el contenedor de inicio de sesión y mostrar la bienvenida
                 document.getElementById("login-container").classList.add("hidden");
                 document.getElementById("welcome-container").classList.remove("hidden");
@@ -82,7 +82,7 @@ function mostrarEditarLista() {
     // Verificar que el usuario actual está identificado
     if (usuarioActual && usuarioActual.rut) {
         // Obtener los datos desde JSON Server
-        fetch(`http://localhost:3000/usuarios?rut=${usuarioActual.rut}`)
+        fetch(`https://listadedeseos.onrender.com/usuarios?rut=${usuarioActual.rut}`)
             .then(response => response.json())
             .then(usuarios => {
                 if (usuarios.length > 0) {
@@ -130,7 +130,7 @@ function agregarRegalo(event) {
 
     if (nuevoRegalo && usuarioActual) {
         // Buscar al usuario por RUT para obtener su ID
-        fetch(`http://localhost:3000/usuarios?rut=${usuarioActual.rut}`)
+        fetch(`https://listadedeseos.onrender.com/usuarios?rut=${usuarioActual.rut}`)
             .then(response => response.json())
             .then(usuarios => {
                 if (usuarios.length > 0) {
@@ -141,7 +141,7 @@ function agregarRegalo(event) {
                     usuario.regalos.push(nuevoRegalo);
 
                     // Actualizar los datos en JSON Server
-                    fetch(`http://localhost:3000/usuarios/${usuarioId}`, {
+                    fetch(`https://listadedeseos.onrender.com/usuarios/${usuarioId}`, {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json"
@@ -175,7 +175,7 @@ function agregarRegalo(event) {
 function eliminarRegalo(index) {
     if (usuarioActual && usuarioActual.rut) {
         // Buscar al usuario en JSON Server utilizando el rut
-        fetch(`http://localhost:3000/usuarios?rut=${usuarioActual.rut}`)
+        fetch(`https://listadedeseos.onrender.com/usuarios?rut=${usuarioActual.rut}`)
             .then(response => response.json())
             .then(usuarios => {
                 if (usuarios.length > 0) {
@@ -187,7 +187,7 @@ function eliminarRegalo(index) {
                         regalos.splice(index, 1);
 
                         // Actualizar los datos del usuario utilizando el id del usuario
-                        fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
+                        fetch(`https://listadedeseos.onrender.com/usuarios/${usuario.id}`, {
                             method: "PUT",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({ ...usuario, regalos }) // Actualizar el campo "regalos"
@@ -224,7 +224,7 @@ function mostrarVerOtros() {
    
 
     // Obtener usuarios desde JSON Server
-    fetch("http://localhost:3000/usuarios")
+    fetch("https://listadedeseos.onrender.com/usuarios")
         .then(response => response.json())
         .then(datosUsuarios => {
             if (datosUsuarios.length > 0) {
@@ -286,7 +286,7 @@ function cambiarVista(vistaId) {
 
 function mostrarRegalos(nombre) {
     // Realizar una solicitud a JSON Server para obtener todos los usuarios
-    fetch("http://localhost:3000/usuarios")
+    fetch("https://listadedeseos.onrender.com/usuarios")
         .then(response => response.json()) // Convertir la respuesta en formato JSON
         .then(usuarios => {
             // Buscar el usuario por nombre en la lista de usuarios obtenida
