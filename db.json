@@ -73,6 +73,13 @@
       "regalos": [
         "Reloj"
       ]
+    },
+    {
+      "id": "10",
+      "rut": "20760066-0",
+      "nombre": "Jesu",
+      "regalos": [
+      ]
     }
   ]
 }
