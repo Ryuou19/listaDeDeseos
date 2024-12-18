@@ -25,6 +25,26 @@ window.addEventListener("beforeunload", (event) => {
     event.returnValue = ""; // Detiene la recarga del navegador
 });
 
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") { // Detectar la tecla ESC
+        volverAlMenu(); // Ejecutar la función para volver al menú
+        ocultarTarjetas();
+    }
+});
+
+document.addEventListener("click", function(event) {
+    const contenedor = document.getElementById("ver-listas");
+    const esClicDentro = contenedor.contains(event.target);
+    const estaVisible = !contenedor.classList.contains("hidden"); // Solo se ejecuta si está visible
+
+    // Si el clic fue fuera del contenedor y el contenedor está visible
+    if (!esClicDentro && estaVisible) {
+        volverAlMenu(); // Función para volver al menú principal
+        ocultarTarjetas();
+    }
+});
+
+
 let usuarioActual = null;
 
 // Asignar evento al botón de agregar regalo
@@ -34,6 +54,15 @@ document.getElementById("btn-agregar-regalo").addEventListener("click", (event) 
 });
 
 
+function ocultarTarjetas() {
+    const contenedor = document.getElementById("ver-listas");
+    contenedor.classList.add("hidden"); // Agrega la clase hidden
+}
+
+function mostrarTarjetas() {
+    const contenedor = document.getElementById("ver-listas");
+    contenedor.classList.remove("hidden"); // Remueve la clase hidden
+}
 
 
 // Función para manejar el inicio de sesión
@@ -219,9 +248,9 @@ function eliminarRegalo(index) {
 
 function mostrarVerOtros() {
     const contenedorUsuarios = document.getElementById("ver-listas");
-    
+    event.stopPropagation(); // Detiene la propagación del evento click
     contenedorUsuarios.innerHTML = ""; // Limpiar el contenedor
-   
+    mostrarTarjetas();
 
     // Obtener usuarios desde JSON Server
     fetch("https://listadedeseos.onrender.com/usuarios")

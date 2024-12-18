@@ -407,12 +407,13 @@ body::before {
 
 /* Contenedor principal de las tarjetas */
 .usuarios-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos pasen a una nueva línea */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 10px; /* Espacio entre las tarjetas */
+    padding: 10px;
     margin: 0 auto;
+    max-width: 100%; /* Que ocupe el 100% en dispositivos pequeños */
 }
 
 /* Tarjeta individual */
@@ -422,8 +423,11 @@ body::before {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     padding: 20px;
+    width: 50px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    flex: 0 0 calc(50% - 20px); /* Tamaño predeterminado: 2 columnas */
+    box-sizing: border-box;
     position: relative;
     overflow: hidden;
 }
