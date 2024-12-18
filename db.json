@@ -1,0 +1,78 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "rut": "21124889-0",
+      "nombre": "Bruno",
+      "regalos": [
+        "Audífonos",
+        "22",
+        "33"
+      ]
+    },
+    {
+      "id": "2",
+      "rut": "10051928-3",
+      "nombre": "María",
+      "regalos": [
+        "Celular"
+      ]
+    },
+    {
+      "id": "3",
+      "rut": "9664766-2",
+      "nombre": "Rafael",
+      "regalos": [
+        "Reloj"
+      ]
+    },
+    {
+      "id": "4",
+      "rut": "15776960-k",
+      "nombre": "Angelo",
+      "regalos": [
+        "Audífonos"
+      ]
+    },
+    {
+      "id": "5",
+      "rut": "16067690-6",
+      "nombre": "Mariela",
+      "regalos": [
+        "Celular"
+      ]
+    },
+    {
+      "id": "6",
+      "rut": "24438219-3",
+      "nombre": "Josefa",
+      "regalos": [
+        "Reloj"
+      ]
+    },
+    {
+      "id": "7",
+      "rut": "24438159-6",
+      "nombre": "Isabella",
+      "regalos": [
+        "Audífonos"
+      ]
+    },
+    {
+      "id": "8",
+      "rut": "18663255-9",
+      "nombre": "Ornella",
+      "regalos": [
+        "Celular"
+      ]
+    },
+    {
+      "id": "9",
+      "rut": "21661569-7",
+      "nombre": "Florencia",
+      "regalos": [
+        "Reloj"
+      ]
+    }
+  ]
+}

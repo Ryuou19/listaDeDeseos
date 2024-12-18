@@ -1,0 +1,41 @@
+{
+    "usuarios": {
+      "21124889-0": {
+        "nombre": "Bruno",
+        "regalos": ["Audifonos"]
+      },
+      "10051928-3": {
+        "nombre": "María",
+        "regalos": ["Audifonos"]
+      },
+      "9664766-2": {
+        "nombre": "Rafael",
+        "regalos": ["Audifonos"]
+      },
+      "15776960-k": {
+        "nombre": "Angelo",
+        "regalos": ["Audifonos"]
+      },
+      "16067690-6": {
+        "nombre": "Mariela",
+        "regalos": ["Audifonos"]
+      },
+      "24438219-3": {
+        "nombre": "Josefa",
+        "regalos": ["Audifonos"]
+      },
+      "24438159-6": {
+        "nombre": "Isabella",
+        "regalos": ["Audifonos"]
+      },
+      "18663255-9": {
+        "nombre": "Ornella",
+        "regalos": ["Audifonos"]
+      },
+      "21661569-7": {
+        "nombre": "Florencia",
+        "regalos": ["Audifonos"]
+      }
+    }
+  }
+  

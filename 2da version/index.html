@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="style.css"> 
+    
+
+</head>
+
+<body>
+
+    <!-- Contenedor para mostrar el nombre del usuario -->
+<div id="usuario-header" class="usuario-header hidden">
+    <h2>Bienvenido <span id="nombre-usuario-header"></span>!</h2>
+    <button id="botonCerrar" class="logout-btn hidden" onclick="cerrarSesion()">Cerrar Sesión</button>
+</div>
+
+
+    <div class="container" id="login-container">
+        <h1>Iniciar Sesión</h1>
+        <label for="rut">RUT:</label>
+        <input type="text" id="rut" placeholder="Ingrese su RUT">
+        <button onclick="iniciarSesion()">Ingresar</button>
+        <p id="error" style="color:red;"></p>
+    </div>
+
+    <div class="card-container hidden" id="welcome-container">
+        <!-- Tarjeta para Editar Lista -->
+        <div class="card card-editar" onclick="mostrarEditarLista()">
+            <img src="imagenes/card1_parte1.png" class="card-img" alt="Editar">
+            <p>Lista de Deseos</p>
+        </div>
+    
+        <!-- Tarjeta para Ver Lista -->
+        <div class="card card-ver" onclick="mostrarVerOtros()">
+            <img src="imagenes/card1_parte1.png" class="card-img" alt="Ver">
+            <p>Otras Listas</p>
+        </div>
+    </div>
+    
+
+    <!-- Editar Lista de Regalos -->
+    <div class="container hidden" id="editar-lista-container">
+        <h3>Edita tus Regalos!</h3>
+        <ul id="lista-regalos"></ul>
+        <input type="text" id="nuevo-regalo" placeholder="Agregar un nuevo regalo">
+        <button type="button" id="btn-agregar-regalo">Agregar Regalo</button>
+        <button onclick="volverAlMenu()">Volver al Inicio</button>
+    </div>
+
+    
+
+    <!-- Tarjetas de los usuarios -->
+    <div class="usuarios-container hidden" id="ver-listas">
+        
+        <div class="usuario-card" onclick="mostrarRegalos('María')">
+            <h3>María</h3>
+        </div>
+        <div class="usuario-card" onclick="mostrarRegalos('Rafael')">
+            <h3>Rafael</h3>
+        </div>
+        <div class="usuario-card" onclick="mostrarRegalos('Angelo')">
+            <h3>Angelo</h3>
+        </div>
+        <div class="usuario-card" onclick="mostrarRegalos('Mariela')">
+            <h3>Mariela</h3>
+        </div>
+        <div class="usuario-card" onclick="mostrarRegalos('Ornella')">
+            <h3>Ornella</h3>
+        </div>
+        <div class="usuario-card" onclick="mostrarRegalos('Bruno')">
+            <h3>Bruno</h3>
+        </div>
+        <div class="usuario-card" onclick="mostrarRegalos('Florencia')">
+            <h3>Florencia</h3>
+        </div>
+        <div class="usuario-card" onclick="mostrarRegalos('Josefa')">
+            <h3>Josefa</h3>
+        </div>
+        <div class="usuario-card" onclick="mostrarRegalos('Isabella')">
+            <h3>Isabella</h3>
+            
+        </div>
+    </div>
+    
+
+
+    <!-- Fondo oscuro y Modal -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal" id="modal">
+        <h3 id="modal-title"></h3>
+        <ul id="modal-list"></ul>
+        <button class="modal-close" onclick="cerrarModal()">Cerrar</button>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

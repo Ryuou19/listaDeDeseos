@@ -1,0 +1,532 @@
+.hidden { 
+    display: none !important; 
+}
+
+/*ELEMENTOS DEL BOTON DE CERRAR SESION*/
+/* Botón de Cerrar Sesión */
+.logout-btn {
+    position: fixed; /* Fijo en la pantalla */
+    top: 20px; /* Espaciado desde arriba */
+    right: -300px; /* Espaciado desde la derecha */
+    background-color: #ff4d4d; /* Rojo vibrante */
+    color: #fff; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Eliminar borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de la letra */
+    font-weight: bold; /* Negrita */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    cursor: pointer; /* Cursor de mano */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover (al pasar el cursor) */
+.logout-btn:hover {
+    background-color: #e63939; /* Rojo más oscuro */
+    transform: scale(1.05); /* Efecto de escala */
+}
+
+/* Efecto active (al presionar el botón) */
+.logout-btn:active {
+    transform: scale(0.95); /* Efecto de presión */
+}
+
+
+/*ELEMENTOS DEL TITULO DEL USUARIO*/
+
+
+/* Contenedor del mensaje de bienvenida */
+.usuario-header {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 20px; /* Espacio desde la parte superior */
+    left: 50%; /* Centrar horizontalmente */
+    width: 600px;
+    height: 90px;
+    transform: translateX(-50%); /* Ajustar el centrado */
+    background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+    padding: 5px 10px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    text-align: center; /* Centrar el texto */
+    z-index: 10; /* Colocarlo por encima de otros elementos */
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem; /* Tamaño de fuente */
+    font-weight: bold;
+    color: #e63946; /* Color rojo navideño */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    border: 2px solid #ffcc00; /* Borde dorado */
+}
+
+/* Decoración navideña adicional */
+.usuario-header::before,
+.usuario-header::after {
+    content: '🎄'; /* Icono de árbol navideño */
+    position: absolute;
+    font-size: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.usuario-header::before {
+    left: 10px; /* Árbol a la izquierda */
+}
+
+.usuario-header::after {
+    right: 10px; /* Árbol a la derecha */
+}
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Contenedor para el fondo con blur */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -20px;
+    width: 100%;
+    height: 110%;
+    background-image: url('imagenes/fondoLogin.png'); /* Imagen de fondo navideño */
+    background-size: cover; /* Dimensiona la imagen para que cubra todo el fondo */
+    background-position: center;
+    filter: blur(0px); /* Efecto de desenfoque */
+    z-index: -1; /* Envía el fondo detrás del contenido */
+    opacity: 0.8; /* Ajusta la opacidad del fondo */
+}
+
+/* Clase para aplicar el desenfoque */
+.blur-background::before {
+    filter: blur(8px); /* Efecto de desenfoque */
+}
+
+
+
+/*ELEMENTOS DE INICIO DE SESION*/
+
+/* Contenedor principal del inicio de sesión */
+#login-container {
+    background: rgba(255, 255, 255, 0.2); /* Fondo blanco con opacidad */
+    
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Título del inicio de sesión */
+#login-container h1 {
+    font-size: 2rem;
+    color: rgb(183, 22, 22);
+    margin-bottom: 20px;
+    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+}
+
+/* Etiquetas y campos de entrada */
+#login-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgb(183, 22, 22);
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+#login-container input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #4CAF50; /* Color verde resaltado */
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
+    color: #4CAF50; /* Texto dentro del input */
+}
+
+#login-container input[type="text"]:focus {
+    border: 2px solid #4CAF50;
+}
+
+/* Botón estilizado */
+#login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(183, 22, 22);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-left: 10pxx;
+}
+
+#login-container button:hover {
+    background-color: #ff3333;
+    transform: scale(1.05); /* Efecto de escala */
+}
+
+#login-container button:active {
+    transform: scale(0.98);
+}
+
+/* Mensaje de error */
+#error {
+    color: #fff;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+/*Elementos de las cards de las 2 opciones*/
+
+/* Contenedor de tarjetas */
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+    height: 290px;
+}
+
+/* Efecto general para las tarjetas */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer; /* Indica que es clickeable */
+    padding: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    background-color: #e63946; /* Fondo rojo navideño */
+    transform: scale(1.05); /* Efecto de escala al pasar el cursor */
+    color: #fff; /* Texto en blanco */
+}
+
+/* Estilización del texto en las tarjetas */
+.card p {
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e63946; /* Rojo navideño */
+    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto hover del texto */
+.card:hover p {
+    color: #ffcc00; /* Cambia el color del texto a dorado */
+    transform: scale(1.1); /* Efecto de escala */
+}
+
+/* Imagen dentro de la tarjeta */
+.card-img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease;
+}
+
+/* Efecto al pasar el cursor */
+.card:hover {
+    transform: translateY(-10px); /* Hace que la tarjeta se "levante" */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.card:active {
+    transform: translateY(5px); /* Simula que se presiona */
+}
+
+/* Efecto para la tarjeta "Editar Lista de Regalos" */
+.card-editar:hover {
+    background-color: #e63946; /* Color rojo */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: scale(1.05); /* Efecto de escala */
+}
+
+.card-editar:hover .card-img {
+    content: url('imagenes/card1_parte2.png'); /* Imagen de animación */
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto para la tarjeta "Ver Lista de Otros Usuarios" */
+.card-ver:hover {
+    background-color: #e63946; /* Color rojo */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: scale(1.05); /* Efecto de escala */
+}
+
+.card-ver:hover .card-img {
+    content: url('imagenes/card2_parte2.png'); /* Imagen de animación */
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+
+/*--------ELEMENTOS DE LA LISTA PERSONAL DE DESEOS-----------*/
+
+/* Contenedor de edición de regalos */
+#editar-lista-container {
+    background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    border: 3px solid #ffcc00; /* Borde dorado */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    text-align: center;
+    max-width: 500px;
+    margin: 20px auto; /* Centrado */
+    font-family: 'Georgia', serif;
+    color: #e63946; /* Rojo navideño */
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Título */
+#editar-lista-container h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #e63946; /* Rojo navideño */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Lista de regalos */
+#lista-regalos {
+    list-style: none; /* Elimina viñetas */
+    padding: 0;
+    max-height: 300px; /* Establece una altura máxima */
+    overflow-y: auto; /* Activa el scroll vertical si se excede la altura */
+    margin-bottom: 20px; /* Espacio inferior */
+    border: 1px solid #ffcc00; /* Borde decorativo */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para estilo */
+}
+
+
+#lista-regalos li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background: #fdf4e3; /* Fondo claro */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Botón Eliminar */
+#lista-regalos button {
+    background-color: #e63946; /* Rojo navideño */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#lista-regalos button:hover {
+    background-color: #c92b2b; /* Rojo más oscuro */
+}
+
+/* Input y botones */
+#editar-lista-container input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    border: 2px solid #ffcc00; /* Dorado */
+    border-radius: 5px;
+    font-size: 1rem;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+#editar-lista-container button {
+    background-color: #e63946; /* Rojo navideño */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#editar-lista-container button:hover {
+    background-color: #c92b2b; /* Rojo más oscuro */
+    transform: scale(1.05); /* Efecto de escala */
+}
+
+#editar-lista-container button:active {
+    transform: scale(0.95); /* Efecto al presionar */
+}
+
+
+/*---------------ELEMENTOS DE LA LISTA DE DESEOS DE LOS USUARIOS-----------*/
+
+/* Contenedor principal de las tarjetas */
+.usuarios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjeta individual */
+.usuario-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.usuario-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    background-color: #e63946; /* Rojo navideño */
+    color: #fff;
+}
+
+.usuario-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.usuario-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.usuario-card:hover h3 {
+    color: #ffcc00; /* Dorado al hacer hover */
+}
+
+/* Efecto de árbol navideño decorativo */
+.usuario-card::before,
+.usuario-card::after {
+    content: '🎄';
+    position: absolute;
+    font-size: 2.5rem;
+    top: 10px;
+}
+
+.usuario-card::before {
+    left: 10px;
+}
+
+.usuario-card::after {
+    right: 10px;
+}
+
+/* Ventana Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal h3 {
+    color: #e63946; /* Rojo navideño */
+    margin-bottom: 10px;
+}
+
+.modal ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal ul li {
+    padding: 5px 0;
+    color: #333;
+}
+
+.modal-close {
+    background-color: #e63946;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: #c92b2b;
+}
+
+/* Fondo oscuro al abrir la modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+
+
